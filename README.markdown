@@ -13,6 +13,8 @@ JSON much easier to work with than DOM or string manipulation.
 
 # How do I use it?
 
+If you want to see the code and demo first: http://jsfiddle.net/davidhong/gP9bh/
+
 Simple include the `jQuery.serializeObject.js` along with any `jQuery` instance
 and use it like `$.serialize`.
 
