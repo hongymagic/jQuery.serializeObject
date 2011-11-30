@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>$.serializeObject tests</title>
+
+	<link rel="stylesheet" href="../tools/qunit/qunit/qunit.css" type="text/css" media="screen">
+  <script type="text/javascript" src="../tools/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="../tools/qunit/qunit/qunit.js"></script>
+	<script type="text/javascript" src="../jQuery.serializeObject.js"></script>
+	<script type="text/javascript" src="serialization-test.js"></script>
+
+  <style>
+    .test-data { display: none; }
+  </style>
+</head>
+<body>
+	<h1 id="qunit-header">QUnit Test Suite - Step Addon</h1>
+	<h2 id="qunit-banner"></h2>
+	<div id="qunit-testrunner-toolbar"></div>
+	<h2 id="qunit-userAgent"></h2>
+	<ol id="qunit-tests"></ol>
+
+  <div class="test-data">
+    <form id="simple-form">
+      <label for="name">Name</label><input type="text" name="name" value="John Apple" />
+      <label for="age">Age</label><input type="numer" name="age" value="21" />
+      <label for="email">Email</label><input type="email" name="email" value="john.apple@apple.com" />
+      <label for="password">Password</label><input type="password" name="password" />
+
+      <input type="checkbox" name="legal-age" checked="checked" value="yes" />
+      <input type="checkbox" name="terms-and-conditions" value="agreed" />
+    </form>
+  </div>
+</body>
+</html>
