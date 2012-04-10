@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>jQuery.serializeobject by hongymagic</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>jQuery.serializeobject</h1>
+<p>Encode a set of form elements as a JSON object for manipulation/submission. Similar to $.serialize, JSON-ized.</p>
+        <p class="view"><a href="https://github.com/hongymagic/jQuery.serializeObject">View the Project on GitHub <small>hongymagic/jQuery.serializeObject</small></a></p>
+        <ul>
+          <li><a href="https://github.com/hongymagic/jQuery.serializeObject/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/hongymagic/jQuery.serializeObject/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/hongymagic/jQuery.serializeObject">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>What is it?</h1>
+
+<p><code>$.serializeObject</code> is a variant of existing <code>$.serialize</code> method which, instead
+of encoding form elements to string, converts form elements to a valid JSON
+object.</p>
+
+<h1>Why?</h1>
+
+<p>Whilst it isn't necessary in most cases, and by that I mean 99.99% kind of most,
+there are times when we manipulate form data on client side. Personally I find
+JSON much easier to work with than DOM or string manipulation.</p>
+
+<h1>How do I use it?</h1>
+
+<p>If you want to see the code and demo first: <a href="http://jsfiddle.net/davidhong/gP9bh/">http://jsfiddle.net/davidhong/gP9bh/</a></p>
+
+<p>Simple include the <code>jQuery.serializeObject.js</code> along with any <code>jQuery</code> instance
+and use it like <code>$.serialize</code>.</p>
+
+<p>If you have a <code>form</code> like the following:</p>
+
+<pre><code>&lt;form id="minutes"&gt;
+  &lt;input type="text" name="subject" /&gt;
+  &lt;input type="text" name="minute-taker" /&gt;
+  &lt;input type="text" name="attendees" /&gt;
+  ...
+  &lt;input type="checkbox" name="cc[]" value="David" /&gt;
+  &lt;input type="checkbox" name="cc[]" value="John" /&gt;
+  &lt;input type="checkbox" name="cc[]" value="Alice" /&gt;
+&lt;/form&gt;
+</code></pre>
+
+<p>and wish to convert them to a JSON object:</p>
+
+<pre><code>var minutes = $('form#minutes').serializeObject();
+</code></pre>
+
+<p>will return:</p>
+
+<pre><code>{
+  "subject": "",
+  "minuteTaker": "",
+  "attendees": "",
+  "cc[]": []
+}
+</code></pre>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/hongymagic">hongymagic</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+    
+  </body>
+</html>
