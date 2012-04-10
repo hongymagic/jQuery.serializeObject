@@ -18,7 +18,7 @@
 $.fn.serializeObject = function () {
   var 
 
-    result = {},
+    result = Object.create(null),
     mapper = function (element) {
       element.name = $.camelCase(element.name);
       return element;
