@@ -4,6 +4,7 @@
 	"title": "jQuery.serializeObject()",
 	"author": {
 		"name": "David G. Hong",
+		"email": "davidhong.code@gmail.com",
 		"url": "https://github.com/hongymagic"
 	},
 	"licenses": [
@@ -17,7 +18,7 @@
 		}
 	],
 	"dependencies": {
-		"jquery": "1"
+		"jquery": ">=1.2"
 	},
 	"description": "Convert <form> parameters to JSON (JavaScript Object Notation) format",
 	"keywords": [
@@ -27,6 +28,7 @@
         "JSON"
 	],
 	"homepage": "https://github.com/hongymagic/jQuery.serializeObject",
+	"bugs": "https://github.com/hongymagic/jQuery.serializeObject/issues",
 	"maintainers": [
 		{
 			"name": "David G. Hong",
