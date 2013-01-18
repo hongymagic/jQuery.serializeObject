@@ -1,7 +1,7 @@
 {
 	"name": "serializeObject",
 	"version": "1.0.0",
-	"title": "jQuery.serializeObject()",
+	"title": "jQuery serializeObject",
 	"author": {
 		"name": "David G. Hong",
 		"email": "davidhong.code@gmail.com",
@@ -25,7 +25,7 @@
 		"serializeObject",
 		"serialize",
 		"serialise",
-        "JSON"
+		"JSON"
 	],
 	"homepage": "https://github.com/hongymagic/jQuery.serializeObject",
 	"bugs": "https://github.com/hongymagic/jQuery.serializeObject/issues",
