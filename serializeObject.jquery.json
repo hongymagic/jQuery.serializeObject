@@ -16,7 +16,7 @@
 	"dependencies": {
 		"jquery": ">=1.4"
 	},
-	"description": "Convert your form data to into JSON (JavaScript Object Notation) format, so you can manipulate them easily. See Github project page for information. <script>alert('Test');</script>",
+	"description": "Convert your form data to into JSON (JavaScript Object Notation) format, so you can manipulate them easily. See Github project page for information.",
 	"tags": [
 		"form",
 		"JSON",
