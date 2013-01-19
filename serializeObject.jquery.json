@@ -1,6 +1,6 @@
 {
 	"name": "serializeObject",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"title": "jQuery serializeObject",
 	"author": {
 		"name": "David G. Hong",
@@ -16,7 +16,7 @@
 	"dependencies": {
 		"jquery": ">=1.4"
 	},
-	"description": "Convert <form> data to JSON (JavaScript Object Notation) format",
+	"description": "Convert your form data to into JSON (JavaScript Object Notation) format, so you can manipulate them easily. See Github project page for information. <script>alert('Test');</script>",
 	"tags": [
 		"form",
 		"JSON",
