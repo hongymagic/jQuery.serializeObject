@@ -3,7 +3,7 @@
 
 `$.serializeObject` is a variant of existing `$.serialize` method which, instead
 of encoding form elements to string, converts form elements to a valid JSON
-object.
+object which can be used in your JavaScript application.
 
 # Why?
 
@@ -38,4 +38,3 @@ will return:
       minuteTaker: '',
       attendees: ''
     }
-
