@@ -15,28 +15,30 @@
 // $('<div data-favorite-color="yellow"></div>').data()
 // => { favoriteColor: 'yellow' }
 //
-$.fn.serializeObject = function () {
-	var result = Object.create(null);
-	var mapper = function (element) {
-		element.name = $.camelCase(element.name);
-		return element;
-	};
-	var extend = function (i, element) {
-		var node = result[element.name];
+$.fn.serializeObject = function (camelCase) {
+  var result = Object.create(null);
+  var mapper = function (element) {
+    if ('undefined' !== typeof camelCase && camelCase === true) {
+      element.name = $.camelCase(element.name);
+    }
+    return element;
+  };
+  var extend = function (i, element) {
+    var node = result[element.name];
 
 // If node with same name exists already, need to convert it to an array as it
 // is a multi-value field (i.e., checkboxes)
 
-		if ('undefined' !== typeof node && node !== null) {
-			result[element.name] = node.push ? node.push(element.value) : [node, element.value];
-		} else {
-			result[element.name] = element.value;
-		}
-	};
+    if ('undefined' !== typeof node && node !== null) {
+      node.push ? result[element.name].push(element.value) : result[element.name] = [node, element.value];
+    } else {
+      result[element.name] = element.value;
+    }
+  };
 
 // For each serialzable element, convert element names to camelCasing and
 // extend each of them to a JSON object
 
-	$.each($.map(this.serializeArray(), mapper), extend);
-	return result;
+  $.each($.map(this.serializeArray(), mapper), extend);
+  return result;
 };
