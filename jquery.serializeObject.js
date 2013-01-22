@@ -16,6 +16,8 @@
 // => { favoriteColor: 'yellow' }
 //
 $.fn.serializeObject = function () {
+	"use strict";
+
 	var result = Object.create(null);
 	var mapper = function (element) {
 		element.name = $.camelCase(element.name);
@@ -28,7 +30,11 @@ $.fn.serializeObject = function () {
 // is a multi-value field (i.e., checkboxes)
 
 		if ('undefined' !== typeof node && node !== null) {
-			result[element.name] = node.push ? node.push(element.value) : [node, element.value];
+			if ($.isArray(node)) {
+				node.push(element.value);
+			} else {
+				result[element.name] = [node, element.value];
+			}
 		} else {
 			result[element.name] = element.value;
 		}
