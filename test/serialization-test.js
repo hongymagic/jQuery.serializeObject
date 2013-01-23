@@ -9,7 +9,7 @@ test('simple form test', function () {
 		age: '21',
 		email: 'john.apple@apple.com',
 		password: '',
-		legalAge: 'yes'
+		'legal-age': 'yes'
 	};
 
 	deepEqual(data, expected, 'Key/value pairs should be identical');

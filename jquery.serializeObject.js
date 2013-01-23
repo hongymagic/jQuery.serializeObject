@@ -1,28 +1,20 @@
 //
-// Use internal $.serializeArray to get list of form elements which is consistent with $.serialize
+// Use internal $.serializeArray to get list of form elements which is
+// consistent with $.serialize
 //
-// And to avoid names such as
-// => object["favorite-color"]
+// From version 2.0.0, $.serializeObject will stop converting [name] values
+// to camelCase format. This is *consistent* with other serialize methods:
 //
-// We camelcase the name part, so the notation becomes
-// => object["favoriteColor"]
+//   - $.serialize
+//   - $.serializeArray
 //
-// Conveniently, this allows period notation to be used.
-// => object.favoriteColor
-//
-// This behaviour is similar to $(element).data()
-//
-// $('<div data-favorite-color="yellow"></div>').data()
-// => { favoriteColor: 'yellow' }
+// If you require camel casing, you can either download version 1.0.4 or map
+// them yourself.
 //
 $.fn.serializeObject = function () {
 	"use strict";
 
-	var result = Object.create(null);
-	var mapper = function (element) {
-		element.name = $.camelCase(element.name);
-		return element;
-	};
+	var result = {};
 	var extend = function (i, element) {
 		var node = result[element.name];
 
@@ -43,6 +35,6 @@ $.fn.serializeObject = function () {
 // For each serialzable element, convert element names to camelCasing and
 // extend each of them to a JSON object
 
-	$.each($.map(this.serializeArray(), mapper), extend);
+	$.each(this.serializeArray(), extend);
 	return result;
 };

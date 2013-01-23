@@ -13,28 +13,47 @@ JSON much easier to work with than DOM or string manipulation.
 
 # How do I use it?
 
-If you want to see the code and demo first: http://jsfiddle.net/davidhong/gP9bh/
+If you want to see the code and demo first: http://jsfiddle.net/davidhong/PRpJT/
 
-Simple include the `jQuery.serializeObject.js` along with any `jQuery` instance
+Simply include the `jQuery.serializeObject.js` along with any `jQuery` instance
 and use it like `$.serialize`.
 
 If you have a `form` like the following:
 
-    <form id="minutes">
-      <input type="text" name="subject" />
-      <input type="text" name="minute-taker" />
-      <input type="text" name="attendees" />
-      ...
-    </form>
+	<form id="minutes">
+		<input type="text" name="subject">
+		<input type="text" name="minute-taker">
+		<!-- ... -->
+		<input type="checkbox" name="attendees" value="David" checked="checked">
+		<input type="checkbox" name="attendees" value="Daniel" checked="checked">
+		<input type="checkbox" name="attendees" value="Darwin" checked="checked">
+	</form>
 
 and wish to convert them to a JSON object:
 
-    var minutes = $('form#minutes').serializeObject();
+	var minutes = $('form#minutes').serializeObject();
 
 will return:
 
-    {
-      subject: '',
-      minuteTaker: '',
-      attendees: ''
-    }
+	{
+		"subject": "",
+		"minute-taker": "",
+		"attendees": [
+			"David",
+			"Daniel",
+			"Darwin"
+		]
+	}
+
+## Change log
+
+### 2.0.0
+
+*Major version change: Camel casing of names have been removed. Please use
+version 1.0.4 if you require camel casing of names.*
+
+- Remove `$.data` like camelCasing on names
+
+### 1.0.4
+
+- Fix an issue (#2) where arrays longer than 2 resulted in incorrect values
