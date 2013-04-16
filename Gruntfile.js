@@ -11,29 +11,20 @@ module.exports = function (grunt) {
 			tests: ['test/**/*.js']
 		},
 
-		lint: {
-			all: ['<config:files.all>', '<config:files.tests>']
-		},
-
 		docs: {
 			all: ['README.markdown']
 		},
 
-		min: {
+		uglify: {
 			dist: {
-				src: '<config:files.all>',
-				dest: 'dist/jquery.serializeObject.min.js'
+				'dist/jquery.serializeObject.min.js': '<config:files.all>'
 			}
 		},
 
-// JSHint options
-// See: http://www.jshint.com/options/ for list of options and definitions
-
 		jshint: {
-			options: '<json:.jshintrc>'
+			options: '<json:.jshintrc>',
+			all: '<config:files.all>'
 		},
-
-// QUnit
 
 		qunit: {
 			all: ['test/*.html']
@@ -41,8 +32,12 @@ module.exports = function (grunt) {
 
 	});
 
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-qunit');
+
 // Default grunt task
 
-	grunt.registerTask('default', 'lint qunit min');
+	grunt.registerTask('default', ['jshint', 'uglify', 'qunit']);
 
 };
