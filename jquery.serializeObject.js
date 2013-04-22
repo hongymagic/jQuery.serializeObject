@@ -11,30 +11,32 @@
 // If you require camel casing, you can either download version 1.0.4 or map
 // them yourself.
 //
-$.fn.serializeObject = function () {
-	"use strict";
-
-	var result = {};
-	var extend = function (i, element) {
-		var node = result[element.name];
-
-// If node with same name exists already, need to convert it to an array as it
-// is a multi-value field (i.e., checkboxes)
-
-		if ('undefined' !== typeof node && node !== null) {
-			if ($.isArray(node)) {
-				node.push(element.value);
+(function($){
+	$.fn.serializeObject = function () {
+		"use strict";
+	
+		var result = {};
+		var extend = function (i, element) {
+			var node = result[element.name];
+	
+	// If node with same name exists already, need to convert it to an array as it
+	// is a multi-value field (i.e., checkboxes)
+	
+			if ('undefined' !== typeof node && node !== null) {
+				if ($.isArray(node)) {
+					node.push(element.value);
+				} else {
+					result[element.name] = [node, element.value];
+				}
 			} else {
-				result[element.name] = [node, element.value];
+				result[element.name] = element.value;
 			}
-		} else {
-			result[element.name] = element.value;
-		}
+		};
+	
+	// For each serialzable element, convert element names to camelCasing and
+	// extend each of them to a JSON object
+	
+		$.each(this.serializeArray(), extend);
+		return result;
 	};
-
-// For each serialzable element, convert element names to camelCasing and
-// extend each of them to a JSON object
-
-	$.each(this.serializeArray(), extend);
-	return result;
-};
+})(jQuery)''
