@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/hongymagic/jQuery.serializeObject.png)](https://travis-ci.org/hongymagic/jQuery.serializeObject)
 
 # What is it?
 
