@@ -48,6 +48,10 @@ will return:
 
 ## Change log
 
+### 2.0.2
+
+- Add support for $.noConflict mode
+
 ### 2.0.0
 
 *Major version change: Camel casing of names have been removed. Please use
