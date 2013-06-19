@@ -52,3 +52,27 @@ test('nested attribute inputs', function () {
 		'Key/value pairs should be identical where each path segment is new object'
 	);
 });
+
+test('nested attribute inputs with optional splitting character', function () {
+	var form = $('form#nested-optional-character-form');
+	var data = form.serializeObject({
+		splitCharacter: '.'
+	});
+	var expected = {
+		person: {
+			name: 'John Apple',
+			age: '21',
+			contact: {
+				email: 'john.apple@apple.com'
+			},
+			'legal-age': 'yes'
+		},
+		password: ''
+	};
+
+	deepEqual(
+		data,
+		expected,
+		'Key/value pairs should be identical where each path segment is new object'
+	);
+});

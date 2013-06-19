@@ -53,6 +53,16 @@
 				<input type="checkbox" name="person[legal-age]" checked="checked" value="yes">
 				<input type="checkbox" name="terms-and-conditions" value="agreed">
 			</form>
+
+			<form id="nested-optional-character-form">
+				<label for="person.name">Name</label><input type="text" name="person.name" value="John Apple">
+				<label for="person.age">Age</label><input type="numer" name="person.age" value="21">
+				<label for="person.contact.email">Email</label><input type="email" name="person.contact.email" value="john.apple@apple.com">
+				<label for="password">Password</label><input type="password" name="password">
+
+				<input type="checkbox" name="person.legal-age" checked="checked" value="yes">
+				<input type="checkbox" name="terms-and-conditions" value="agreed">
+			</form>
 		</div>
 	</body>
 </html>

@@ -13,12 +13,18 @@
 //
 
 (function($){
-  $.fn.serializeObject = function () {
+  $.fn.serializeObject = function (options) {
     "use strict";
+
+    var default_options = {
+      splitCharacter: '['
+    };
+
+    options = $.extend({}, default_options, options || {});
 
     var result = {};
     var pathArray = function(name) {
-      return name.replace(/\]/g,'').split(/\[/);
+      return name.replace(/\]/g,'').split(options.splitCharacter);
     };
     var setValue = function(path, value, result){
       if(path.length) {
