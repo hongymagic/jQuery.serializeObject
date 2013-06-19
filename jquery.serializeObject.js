@@ -13,28 +13,43 @@
 //
 
 (function($){
-	$.fn.serializeObject = function () {
-		"use strict";
+  $.fn.serializeObject = function () {
+    "use strict";
 
-		var result = {};
-		var extend = function (i, element) {
-			var node = result[element.name];
+    var result = {};
+    var pathArray = function(name) {
+      return name.replace(/\]/g,'').split(/\[/);
+    };
+    var setValue = function(path, value, result){
+      if(path.length) {
+        var name = path.shift();
+        if (name) {
+          if (!path.length && result[name]) {
+            path.push('');
+            if (!$.isArray(result[name])) {
+              result[name] = [result[name]];
+            }
+          }
+          result[name] = setValue(path, value, result[name] || {});
+          return result;
+        } else {
+          if($.isArray(result)) {
+            result.push(value);
+            return result;
+          } else {
+            return [value];
+          }
+        }
+      } else {
+        return value;
+      }
+    };
+    var extend = function (i, element) {
+      var path = pathArray(element.name);
+      setValue(path, element.value, result);
+    };
 
-	// If node with same name exists already, need to convert it to an array as it
-	// is a multi-value field (i.e., checkboxes)
-
-			if ('undefined' !== typeof node && node !== null) {
-				if ($.isArray(node)) {
-					node.push(element.value);
-				} else {
-					result[element.name] = [node, element.value];
-				}
-			} else {
-				result[element.name] = element.value;
-			}
-		};
-
-		$.each(this.serializeArray(), extend);
-		return result;
-	};
+    $.each(this.serializeArray(), extend);
+    return result;
+  };
 })(jQuery);
