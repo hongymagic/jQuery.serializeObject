@@ -1,6 +1,6 @@
 {
   "name": "jQuery.serializeObject",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "main": "jQuery.serializeObject.js",
   "ignore": [
     "**/.*",
