@@ -66,3 +66,7 @@ version 1.0.4 if you require camel casing of names.*
 ### 1.0.4
 
 - Fix an issue (#2) where arrays longer than 2 resulted in incorrect values
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hongymagic/jquery.serializeobject/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
