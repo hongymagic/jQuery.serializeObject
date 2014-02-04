@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="../tools/qunit/qunit/qunit.css" type="text/css" media="screen">
 		<script type="text/javascript" src="../tools/jquery/dist/jquery.min.js"></script>
 		<script type="text/javascript" src="../tools/qunit/qunit/qunit.js"></script>
-		<script type="text/javascript" src="../jQuery.serializeObject.js"></script>
+		<script type="text/javascript" src="../jquery.serializeObject.js"></script>
 		<script type="text/javascript" src="serialization-test.js"></script>
 
 		<style>
@@ -34,14 +34,34 @@
 
 			<form id="multi-value-form">
 				<!-- multiple selections -->
-				<input type="checkbox" name="food" value="Banana" checked="checked">
-				<input type="checkbox" name="food" value="Melon" checked="checked">
+				<input type="checkbox" name="food[]" value="Banana" checked="checked">
+				<input type="checkbox" name="food[]" value="Melon" checked="checked">
 
 				<input type="checkbox" name="drink" value="Water" checked="checked">
 				<input type="checkbox" name="drink" value="Alcohol">
 				<input type="checkbox" name="drink" value="Milk" checked="checked">
 				<input type="checkbox" name="drink" value="Beer" checked="checked">
 				<input type="checkbox" name="drink" value="Cocktail" checked="checked">
+			</form>
+
+			<form id="nested-form">
+				<label for="person[name]">Name</label><input type="text" name="person[name]" value="John Apple">
+				<label for="person[age]">Age</label><input type="numer" name="person[age]" value="21">
+				<label for="person[contact][email]">Email</label><input type="email" name="person[contact][email]" value="john.apple@apple.com">
+				<label for="password">Password</label><input type="password" name="password">
+
+				<input type="checkbox" name="person[legal-age]" checked="checked" value="yes">
+				<input type="checkbox" name="terms-and-conditions" value="agreed">
+			</form>
+
+			<form id="nested-optional-character-form">
+				<label for="person.name">Name</label><input type="text" name="person.name" value="John Apple">
+				<label for="person.age">Age</label><input type="numer" name="person.age" value="21">
+				<label for="person.contact.email">Email</label><input type="email" name="person.contact.email" value="john.apple@apple.com">
+				<label for="password">Password</label><input type="password" name="password">
+
+				<input type="checkbox" name="person.legal-age" checked="checked" value="yes">
+				<input type="checkbox" name="terms-and-conditions" value="agreed">
 			</form>
 		</div>
 	</body>
