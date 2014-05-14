@@ -46,7 +46,54 @@ will return:
 		]
 	}
 
+## use serializeDeepObject
+
+If use the examples blew, then output the same result.
+
+But, we can use serializeDeepObject for some amazed thing.
+
+If you have a `form` like the following:
+
+	<form id="minutes">
+		<input type="text" name="subject">
+		<input type="text" name="minute.taker">
+		<!-- ... -->
+		<input type="checkbox" name="attendees[0].name" value="David" checked="checked">
+		<input type="checkbox" name="attendees[1].name" value="Daniel" checked="checked">
+		<input type="checkbox" name="attendees[2].name" value="Darwin" checked="checked">
+	</form>
+
+and wish to convert them to a JSON object:
+
+	var minutes = $('form#minutes').serializeDeepObject();
+
+will return:
+
+	{
+		"subject": "",
+		"minute": {
+            taker": ""
+        },
+		"attendees": [
+			{
+                "name": "David"
+            },
+            {
+			    "name": "Daniel"
+            },
+			{
+                "name": "Darwin"
+            }
+		]
+	}
+
+Is that amazing? And try it.
+
 ## Change log
+
+### 2.0.4
+
+- Add jQuery.serializeDeepObject.js for complex data structures.
 
 ### 2.0.3
 
