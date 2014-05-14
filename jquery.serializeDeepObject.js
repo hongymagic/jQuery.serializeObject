@@ -59,12 +59,18 @@ function formatObject(name, value, result) {
         }
     }
 }
-$.fn.serializeDeepObject = function () {
+/**
+ * @param {Function} callback
+ * @return {Object}
+ */
+$.fn.serializeDeepObject = function (callback) {
     "use strict";
     var result = {};
     $.each(this.serializeArray(), function(i, elem) {
         formatObject(elem.name, elem.value, result);
     });
+
+    callback && callback(result);
     return result;
 };
 
