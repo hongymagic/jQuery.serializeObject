@@ -1,10 +1,16 @@
 {
   "name": "jQuery.serializeObject",
   "version": "2.0.3",
-  "main": "jQuery.serializeObject.js",
+  "main": "jquery.serializeObject.js",
   "ignore": [
     "**/.*",
     "node_modules",
     "components"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "1.9.1"
+  },
+  "devDependencies": {
+    "qunit": "~1.14.0"
+  }
 }

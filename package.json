@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "pretest": "git submodule update --init --recursive && git submodule foreach --recursive git pull origin master && cd tools/jquery && npm install && grunt",
+    "pretest": "bower install",
     "test": "grunt"
   },
   "repository": {
