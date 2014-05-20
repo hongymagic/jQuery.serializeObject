@@ -4,14 +4,15 @@
  */
 (function($) {
 
+function isCheckBox(elem) {
+    return (elem.length ? elem[0] : elem).type === 'checkbox';
+}
+
 function isExist(value) {
     return 'undefined' !== typeof value && null !== value;
 }
 
-function getNumber(val) {
-    return isNaN(val) && '' !== val ? val : parseInt(val, 10);
-}
-function formatObject(name, value, result) {
+function formatObject(name, value, result, isArray) {
     var nameList = name.split('.'),
         node,
         key,
@@ -22,6 +23,10 @@ function formatObject(name, value, result) {
             }
             result = result[k];
         };
+        
+   if (/^\d+$/.test(value)) {
+       value = parseInt(value, 10);
+   }
 
     while((key = nameList.shift())) {
         // array
@@ -37,7 +42,7 @@ function formatObject(name, value, result) {
                     if (nameList.length) {
                         setValue(k);
                     } else {
-                        result[k] = value;
+                        result[k] = isArray ? [value] : value;
                     }
                 }
             }
@@ -53,25 +58,19 @@ function formatObject(name, value, result) {
                         result[key] = [result[key], value];
                     }
                 } else {
-                    result[key] = value;
+                    result[key] = isArray ? [value] : value;
                 }
             }
         }
     }
 }
-/**
- * @param {Function} callback
- * @return {Object}
- */
-$.fn.serializeDeepObject = function (callback) {
+$.fn.serializeObject = function (callback) {
     "use strict";
-    var result = {};
-    $.each(this.serializeArray(), function(i, elem) {
-        formatObject(elem.name, elem.value, result);
+    var result = {}, _this = this;
+    $.each(_this.serializeArray(), function(i, elem) {
+        formatObject(elem.name, elem.value, result, isCheckBox(_this[0].elements[elem.name]));
     });
-
     callback && callback(result);
     return result;
 };
-
 })(jQuery);
