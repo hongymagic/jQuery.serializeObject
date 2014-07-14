@@ -30,13 +30,16 @@
       if(path.length) {
         var name = path.shift();
         if (name) {
+          if ($.isNumeric(name)) {
+            name = parseInt(name, 10);
+          }
           if (!path.length && result[name]) {
             path.push('');
             if (!$.isArray(result[name])) {
               result[name] = [result[name]];
             }
           }
-          result[name] = setValue(path, value, result[name] || (($.isNumeric(name) ? [] : {})));
+          result[name] = setValue(path, value, result[name] || ((path.length && $.isNumeric(path[0]) ? [] : {})));
           return result;
         } else {
           if($.isArray(result)) {
