@@ -36,7 +36,7 @@
               result[name] = [result[name]];
             }
           }
-          result[name] = setValue(path, value, result[name] || {});
+          result[name] = setValue(path, value, result[name] || (($.isNumeric(name) ? [] : {})));
           return result;
         } else {
           if($.isArray(result)) {

@@ -76,3 +76,27 @@ test('nested attribute inputs with optional splitting character', function () {
 		'Key/value pairs should be identical where each path segment is new object'
 	);
 });
+
+
+test('nested attribute array handling', function () {
+	var form = $('form#nested-array-handling');
+	var data = form.serializeObject();
+	var expected = {
+		"root": {
+			"items": [
+				{
+					"quantity": "1"
+				},
+				{
+					"quantity": "1"
+				}
+			]
+		}
+	};
+
+	deepEqual(
+			data,
+			expected,
+			'Key/value pairs should be identical and arrays should remain intact'
+	);
+});
