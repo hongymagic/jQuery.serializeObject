@@ -67,6 +67,8 @@ version 1.0.4 if you require camel casing of names.*
 
 - Fix an issue (#2) where arrays longer than 2 resulted in incorrect values
 
+## Known issues
+
+- In rare cases, this won't work with old checkbox/hidden hack. See [this issue for more details](https://github.com/hongymagic/jQuery.serializeObject/issues/9).
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/hongymagic/jquery.serializeobject/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
