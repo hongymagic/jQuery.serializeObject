@@ -2,12 +2,13 @@
 module.exports = function (grunt) {
 
 // Project configuration
+  let sourceFiles = ['jquery.serializeObject.js'];
 
 	grunt.initConfig({
-		pkg: '<json:serializeObject.jquery.json>',
+		pkg: grunt.file.readJSON('serializeObject.jquery.json'),
 
 		files: {
-			all: ['jquery.serializeObject.js'],
+			all: sourceFiles,
 			tests: ['test/**/*.js']
 		},
 
@@ -16,14 +17,16 @@ module.exports = function (grunt) {
 		},
 
 		uglify: {
-			dist: {
-				'dist/jquery.serializeObject.min.js': '<config:files.all>'
+      dist: {
+        files: {
+          'dist/jquery.serializeObject.min.js': sourceFiles,
+        }
 			}
 		},
 
 		jshint: {
-			options: '<json:.jshintrc>',
-			all: '<config:files.all>'
+			options: grunt.file.readJSON('.jshintrc'),
+			all: sourceFiles
 		},
 
 		qunit: {
