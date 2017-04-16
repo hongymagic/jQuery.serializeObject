@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>$.serializeDeepObject tests</title>
+
+		<link rel="stylesheet" href="../tools/qunit/qunit/qunit.css" type="text/css" media="screen">
+		<script type="text/javascript" src="../tools/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="../tools/qunit/qunit/qunit.js"></script>
+		<script type="text/javascript" src="../jQuery.serializeDeepObject.js"></script>
+		<script type="text/javascript" src="serialization-deep-test.js"></script>
+
+		<style>
+			.test-data { display: none; }
+		</style>
+	</head>
+	<body>
+		<h1 id="qunit-header">QUnit Test Suite - Step Addon</h1>
+		<h2 id="qunit-banner"></h2>
+		<div id="qunit-testrunner-toolbar"></div>
+		<h2 id="qunit-userAgent"></h2>
+		<ol id="qunit-tests"></ol>
+
+		<div id="qunit-" class="test-data">
+			<form id="simple-form">
+				<label for="name">Name</label><input type="text" name="user[0].name" value="John Apple">
+				<label for="age">Age</label><input type="numer" name="user[0].age" value="21">
+				<label for="email">Email</label><input type="email" name="user[0].email" value="john.apple@apple.com">
+				<label for="password">Password</label><input type="password" name="user[0].password" value="">
+
+				<input type="checkbox" name="user[0].legal.age" checked="checked" value="yes">
+				<input type="checkbox" name="terms.and.conditions" value="agreed">
+			</form>
+
+			<form id="multi-value-form">
+				<!-- multiple selections -->
+				<input type="checkbox" name="cate.food" value="Banana" checked="checked">
+				<input type="checkbox" name="cate.food" value="Melon" checked="checked">
+
+				<input type="checkbox" name="cate.drink" value="Water" checked="checked">
+				<input type="checkbox" name="cate.drink" value="Alcohol">
+				<input type="checkbox" name="cate.drink" value="Milk" checked="checked">
+				<input type="checkbox" name="cate.drink" value="Beer" checked="checked">
+				<input type="checkbox" name="cate.drink" value="Cocktail" checked="checked">
+			</form>
+		</div>
+	</body>
+</html>
